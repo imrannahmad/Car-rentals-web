@@ -1,4 +1,4 @@
-export default function CarCard({ car }) {
+export default function CarCard({ car, onBook }) {
   if (!car) return null;
 
   const { name, type, pricePerHour, seats, transmission, image } = car;
@@ -74,7 +74,11 @@ export default function CarCard({ car }) {
           </span>
         </div>
 
-        <button className="bg-red-500 hover:bg-red-600 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-md shadow-red-500/20 active:scale-95 transition duration-150">
+        <button
+          type="button"
+          onClick={() => onBook && onBook(car)}
+          className="bg-red-500 hover:bg-red-600 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-md shadow-red-500/20 active:scale-95 transition duration-150 cursor-pointer"
+        >
           Book Now
         </button>
       </div>

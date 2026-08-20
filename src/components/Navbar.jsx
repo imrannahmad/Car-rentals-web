@@ -1,8 +1,14 @@
 import { useState } from 'react';
 import logoImg from '../assets/logo.png';
 
-export default function Navbar() {
+export default function Navbar({ onBook }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleBookClick = (e) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    if (onBook) onBook();
+  };
 
   return (
     <>
@@ -79,12 +85,13 @@ export default function Navbar() {
                 <span className="tracking-tight">+91 9557273446</span>
               </a>
 
-              <a
-                href="#book"
-                className="bg-red-500 hover:bg-red-600 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-red-500/20 hover:shadow-lg hover:shadow-red-500/35 active:scale-95 transition duration-200"
+              <button
+                type="button"
+                onClick={handleBookClick}
+                className="bg-red-500 hover:bg-red-600 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-red-500/20 hover:shadow-lg hover:shadow-red-500/35 active:scale-95 transition duration-200 cursor-pointer"
               >
                 Book Now
-              </a>
+              </button>
             </div>
           </div>
 
@@ -177,13 +184,13 @@ export default function Navbar() {
                 <span>Call +91 9557273446</span>
               </a>
 
-              <a
-                href="#book"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full text-center bg-red-500 hover:bg-red-600 text-white font-bold text-sm py-3 rounded-xl shadow-md shadow-red-500/20"
+              <button
+                type="button"
+                onClick={handleBookClick}
+                className="w-full text-center bg-red-500 hover:bg-red-600 text-white font-bold text-sm py-3 rounded-xl shadow-md shadow-red-500/20 cursor-pointer"
               >
                 Book Now
-              </a>
+              </button>
             </div>
 
           </div>

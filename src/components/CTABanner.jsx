@@ -1,6 +1,6 @@
 import ScrollReveal from './ScrollReveal';
 
-export default function CTABanner() {
+export default function CTABanner({ onBook }) {
   return (
     <section id="book" className="py-16 px-4 sm:px-6 lg:px-12 bg-slate-50">
       <ScrollReveal className="max-w-7xl mx-auto">
@@ -32,12 +32,13 @@ export default function CTABanner() {
                 <span>Call +91 9557273446</span>
               </a>
 
-              <a
-                href="#cars"
-                className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-base px-8 py-3.5 rounded-xl shadow-lg transition duration-200 active:scale-95"
+              <button
+                type="button"
+                onClick={() => onBook && onBook()}
+                className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-base px-8 py-3.5 rounded-xl shadow-lg transition duration-200 active:scale-95 cursor-pointer"
               >
-                Explore Fleet
-              </a>
+                Book Your Car Now
+              </button>
             </div>
           </div>
 

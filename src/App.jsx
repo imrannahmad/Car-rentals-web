@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TopRentalCars from './components/TopRentalCars';
@@ -8,20 +9,36 @@ import Testimonials from './components/Testimonials';
 import FAQAccordion from './components/FAQAccordion';
 import CTABanner from './components/CTABanner';
 import Footer from './components/Footer';
+import BookingModal from './components/BookingModal';
 
 function App() {
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [selectedCar, setSelectedCar] = useState(null);
+
+  const handleOpenBooking = (car = null) => {
+    setSelectedCar(car);
+    setIsBookingModalOpen(true);
+  };
+
   return (
     <div>
-      <Navbar />
+      <Navbar onBook={() => handleOpenBooking()} />
       <Hero />
-      <TopRentalCars />
+      <TopRentalCars onBook={(car) => handleOpenBooking(car)} />
       <HowItWorks />
       <About />
       <Locations />
       <Testimonials />
       <FAQAccordion />
-      <CTABanner />
+      <CTABanner onBook={() => handleOpenBooking()} />
       <Footer />
+
+      {/* INTERACTIVE BOOKING MODAL & SUPABASE INTEGRATION */}
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        car={selectedCar}
+      />
     </div>
   );
 }

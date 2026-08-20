@@ -4,7 +4,7 @@ import CarCard from './CarCard';
 import ScrollReveal from './ScrollReveal';
 import BrowseByType from './BrowseByType';
 
-export default function TopRentalCars() {
+export default function TopRentalCars({ onBook }) {
   const [activeFilter, setActiveFilter] = useState('All');
   const scrollContainerRef = useRef(null);
 
@@ -101,7 +101,7 @@ export default function TopRentalCars() {
           >
             {filteredCars.map((car) => (
               <div key={car.id} className="w-[300px] sm:w-[350px] flex-shrink-0 snap-start">
-                <CarCard car={car} />
+                <CarCard car={car} onBook={onBook} />
               </div>
             ))}
           </div>
