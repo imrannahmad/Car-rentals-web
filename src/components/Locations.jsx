@@ -22,32 +22,32 @@ export default function Locations() {
   };
 
   return (
-    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200/60 overflow-hidden">
+    <section id="hubs" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 bg-slate-50 border-t border-slate-200/60 overflow-hidden">
       <ScrollReveal className="max-w-7xl mx-auto">
         
-        {/* SECTION HEADER & ARROW CONTROLS */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 gap-4">
+        {/* SECTION HEADER & ARROW CONTROLS (VISIBLE ON MOBILE & DESKTOP) */}
+        <div className="flex flex-row items-end justify-between mb-6 sm:mb-8 gap-2">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded-full mb-2 inline-block">
               Service Network
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
               Our Key <span className="text-red-500">Delhi-NCR Hubs</span>
             </h2>
           </div>
 
-          {/* ARROW BUTTONS (Hidden on mobile, visible on desktop) */}
-          <div className="hidden sm:flex items-center gap-2 self-end sm:self-auto">
+          {/* MINIMALIST SLEEK ARROW BUTTONS (VISIBLE ON MOBILE & DESKTOP) */}
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0 self-end pb-1">
             <button
               onClick={() => scroll('left')}
-              className="w-9 h-9 rounded-full border border-slate-200 bg-white hover:bg-slate-900 hover:text-white hover:border-slate-900 text-slate-700 flex items-center justify-center transition shadow-xs active:scale-95 text-xs font-bold"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-slate-200/90 bg-white hover:bg-slate-900 hover:text-white hover:border-slate-900 text-slate-700 flex items-center justify-center transition shadow-xs active:scale-95 text-base font-bold"
               aria-label="Scroll Left"
             >
               ‹
             </button>
             <button
               onClick={() => scroll('right')}
-              className="w-9 h-9 rounded-full border border-slate-200 bg-white hover:bg-slate-900 hover:text-white hover:border-slate-900 text-slate-700 flex items-center justify-center transition shadow-xs active:scale-95 text-xs font-bold"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-slate-200/90 bg-white hover:bg-slate-900 hover:text-white hover:border-slate-900 text-slate-700 flex items-center justify-center transition shadow-xs active:scale-95 text-base font-bold"
               aria-label="Scroll Right"
             >
               ›

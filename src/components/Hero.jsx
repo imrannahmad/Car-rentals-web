@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import scorpioCar from '../assets/cars/scorpio.png';
-import innovaCar from '../assets/cars/innova.png';
 import CustomDateTimePicker from './CustomDateTimePicker';
 
 export default function Hero() {
@@ -23,7 +22,7 @@ export default function Hero() {
   const searchTabs = ['Search Cars', 'Body Type', 'Price Range', 'Advanced Search'];
 
   return (
-    <section className="bg-gradient-to-b from-slate-50 via-white to-slate-100 text-slate-900 pt-10 sm:pt-16 pb-24 sm:pb-32 px-4 sm:px-6 lg:px-12 relative overflow-hidden">
+    <section className="bg-gradient-to-b from-slate-50 via-white to-slate-100 text-slate-900 pt-8 sm:pt-16 pb-24 sm:pb-32 px-4 sm:px-6 lg:px-12 relative overflow-hidden">
       
       {/* Background Glowing Spotlight Radial Gradients */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -32,57 +31,57 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto">
         
         {/* TWO COLUMN HERO GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 mb-10 sm:mb-16">
           
           {/* LEFT COLUMN: HEADLINE & STATS */}
           <div className="lg:col-span-6 flex flex-col items-start text-left animate-fade-in-scale">
             
             {/* Live Status Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 text-red-600 font-extrabold text-xs tracking-wider uppercase border border-red-200/80 shadow-xs mb-6">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse shadow-md shadow-red-500/50" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 font-extrabold text-[11px] sm:text-xs tracking-wider uppercase border border-red-200/80 shadow-xs mb-5">
+              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-md shadow-red-500/50" />
               <span>Delhi NCR Premier Self-Drive Fleet</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.12] tracking-tight mb-5">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.12] tracking-tight mb-4">
               Rent a Car, Drive Your <span className="text-red-500">Freedom</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-slate-600 mb-8 max-w-xl leading-relaxed font-medium">
+            <p className="text-sm sm:text-lg text-slate-600 mb-6 sm:mb-8 max-w-xl leading-relaxed font-medium">
               Book sanitized self-drive SUVs & Hatchbacks with instant doorstep delivery across Delhi, Gurgaon, Noida, and Ghaziabad. Starting @ <strong className="text-slate-900 font-bold">₹99/hour</strong>.
             </p>
 
-            {/* 3 STAT HIGHLIGHTS */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-4 border-t border-slate-200/80 w-full max-w-lg">
+            {/* 3 STAT HIGHLIGHTS - FLUID RESPONSIVE FOR ALL MOBILE PHONE SIZES */}
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-6 pt-4 border-t border-slate-200/80 w-full max-w-xl">
               
-              <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-2xl bg-red-50 text-red-500 border border-red-100 flex items-center justify-center flex-shrink-0 font-bold shadow-xs">
+              <div className="flex items-center gap-1.5 sm:gap-2.5 min-w-0">
+                <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-red-50 text-red-500 border border-red-100 flex items-center justify-center flex-shrink-0 font-bold text-xs sm:text-base shadow-xs">
                   🚗
                 </div>
-                <div>
-                  <p className="text-sm font-black text-slate-900 leading-none">150+</p>
-                  <p className="text-[11px] text-slate-500 font-semibold mt-1">Active Vehicles</p>
+                <div className="min-w-0">
+                  <p className="text-xs sm:text-sm font-black text-slate-900 leading-tight whitespace-nowrap">150+ Fleet</p>
+                  <p className="text-[10px] sm:text-[11px] text-slate-500 font-semibold mt-0.5 whitespace-nowrap">Active Cars</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-2xl bg-red-50 text-red-500 border border-red-100 flex items-center justify-center flex-shrink-0 font-bold shadow-xs">
+              <div className="flex items-center gap-1.5 sm:gap-2.5 min-w-0">
+                <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-red-50 text-red-500 border border-red-100 flex items-center justify-center flex-shrink-0 font-bold text-xs sm:text-base shadow-xs">
                   📍
                 </div>
-                <div>
-                  <p className="text-sm font-black text-slate-900 leading-none">Doorstep</p>
-                  <p className="text-[11px] text-slate-500 font-semibold mt-1">NCR Delivery</p>
+                <div className="min-w-0">
+                  <p className="text-xs sm:text-sm font-black text-slate-900 leading-tight whitespace-nowrap">Doorstep</p>
+                  <p className="text-[10px] sm:text-[11px] text-slate-500 font-semibold mt-0.5 whitespace-nowrap">NCR Delivery</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-2xl bg-red-50 text-red-500 border border-red-100 flex items-center justify-center flex-shrink-0 font-bold shadow-xs">
+              <div className="flex items-center gap-1.5 sm:gap-2.5 min-w-0">
+                <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-red-50 text-red-500 border border-red-100 flex items-center justify-center flex-shrink-0 font-bold text-xs sm:text-base shadow-xs">
                   ⚡
                 </div>
-                <div>
-                  <p className="text-sm font-black text-slate-900 leading-none">₹0 Deposit</p>
-                  <p className="text-[11px] text-slate-500 font-semibold mt-1">Zero Hidden Fees</p>
+                <div className="min-w-0">
+                  <p className="text-xs sm:text-sm font-black text-slate-900 leading-tight whitespace-nowrap">₹0 Deposit</p>
+                  <p className="text-[10px] sm:text-[11px] text-slate-500 font-semibold mt-0.5 whitespace-nowrap">Zero Hidden Fees</p>
                 </div>
               </div>
 
@@ -94,35 +93,35 @@ export default function Hero() {
           <div className="lg:col-span-6 relative flex flex-col justify-center items-center animate-fade-in-scale">
             
             {/* Glowing 3D Backdrop Spotlight */}
-            <div className="relative w-full max-w-lg h-72 sm:h-96 flex items-center justify-center">
+            <div className="relative w-full max-w-lg h-64 sm:h-96 flex items-center justify-center">
               
               {/* Radial Light Ring */}
-              <div className="absolute inset-0 m-auto w-72 sm:w-96 h-72 sm:h-96 bg-gradient-to-tr from-red-500/20 via-red-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute inset-0 m-auto w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-tr from-red-500/20 via-red-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
               {/* FLOATING 3D CAR PNG */}
               <img
                 src={scorpioCar}
                 alt="Mahindra Scorpio N 3D Self-Drive Car"
-                className="w-[95%] sm:w-[100%] max-h-80 object-contain relative z-20 mix-blend-multiply filter drop-shadow-[0_20px_25px_rgba(0,0,0,0.15)] animate-float-3d transition-transform duration-500 hover:scale-105"
+                className="w-[95%] sm:w-[100%] max-h-72 sm:max-h-80 object-contain relative z-20 mix-blend-multiply filter drop-shadow-[0_20px_25px_rgba(0,0,0,0.15)] animate-float-3d transition-transform duration-500 hover:scale-105"
               />
 
               {/* 3D Floor Shadow */}
               <div className="absolute bottom-2 inset-x-10 h-5 bg-slate-900/20 rounded-full blur-xl z-10 scale-y-50 pointer-events-none" />
 
               {/* Floating Badge: Top Right Price */}
-              <div className="absolute top-2 right-2 sm:right-4 z-30 bg-slate-900 text-white px-3.5 py-2 rounded-2xl shadow-xl flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
-                <span className="text-xs font-black">Starting @ ₹99/hr</span>
+              <div className="absolute top-2 right-2 sm:right-4 z-30 bg-slate-900 text-white px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-2xl shadow-xl flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                <span className="text-[11px] sm:text-xs font-black">Starting @ ₹99/hr</span>
               </div>
 
               {/* Floating Badge: Bottom Left Rating */}
-              <div className="absolute bottom-2 left-2 sm:left-4 z-30 bg-white/95 backdrop-blur-md text-slate-900 px-4 py-2.5 rounded-2xl shadow-2xl border border-slate-200/80 flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-amber-400 text-slate-900 font-black flex items-center justify-center text-xs shadow-xs">
+              <div className="absolute bottom-2 left-2 sm:left-4 z-30 bg-white/95 backdrop-blur-md text-slate-900 px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl shadow-2xl border border-slate-200/80 flex items-center gap-2">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-amber-400 text-slate-900 font-black flex items-center justify-center text-xs shadow-xs">
                   ★
                 </div>
                 <div>
-                  <p className="text-[10px] text-slate-500 font-bold uppercase">Customer Rating</p>
-                  <p className="text-xs font-extrabold text-slate-900">4.9 / 5.0 (2,400+ Reviews)</p>
+                  <p className="text-[9px] sm:text-[10px] text-slate-500 font-bold uppercase">Customer Rating</p>
+                  <p className="text-[11px] sm:text-xs font-extrabold text-slate-900">4.9 / 5.0 (2,400+ Reviews)</p>
                 </div>
               </div>
 
