@@ -38,12 +38,25 @@ html {
   }
 }
 
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-0.8deg);
+  }
+}
+
 .animate-fade-in-scale {
   animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-slide-in-left {
   animation: slideInLeft 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float-3d {
+  animation: float3D 4s ease-in-out infinite;
 }
 
 /* Custom Scrollbar Utilities */

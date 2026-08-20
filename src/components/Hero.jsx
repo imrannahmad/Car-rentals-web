@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import heroCarImg from '../assets/hero-car.jpg';
+import scorpioCar from '../assets/cars/scorpio.png';
+import innovaCar from '../assets/cars/innova.png';
 import CustomDateTimePicker from './CustomDateTimePicker';
 
 export default function Hero() {
@@ -22,71 +23,66 @@ export default function Hero() {
   const searchTabs = ['Search Cars', 'Body Type', 'Price Range', 'Advanced Search'];
 
   return (
-    <section className="bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-slate-100 pt-10 sm:pt-14 pb-20 sm:pb-28 px-4 sm:px-6 lg:px-12 relative overflow-x-clip">
+    <section className="bg-gradient-to-b from-slate-50 via-white to-slate-100 text-slate-900 pt-10 sm:pt-16 pb-24 sm:pb-32 px-4 sm:px-6 lg:px-12 relative overflow-hidden">
       
-      {/* Background Radial Glow */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Background Glowing Spotlight Radial Gradients */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-red-500/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         
         {/* TWO COLUMN HERO GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 mb-12 sm:mb-16">
           
-          {/* LEFT COLUMN */}
+          {/* LEFT COLUMN: HEADLINE & STATS */}
           <div className="lg:col-span-6 flex flex-col items-start text-left animate-fade-in-scale">
             
-            {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 font-bold text-xs tracking-wider uppercase border border-red-200/60 shadow-xs mb-5">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-              <span>Self-Drive Car Rental Delhi-NCR</span>
+            {/* Live Status Pill Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 text-red-600 font-extrabold text-xs tracking-wider uppercase border border-red-200/80 shadow-xs mb-6">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse shadow-md shadow-red-500/50" />
+              <span>Delhi NCR Premier Self-Drive Fleet</span>
             </div>
 
-            {/* Bold Sans-Serif Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.12] tracking-tight mb-4">
-              Find Your Perfect Car Drive Your <span className="text-red-500">Freedom</span>
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.12] tracking-tight mb-5">
+              Rent a Car, Drive Your <span className="text-red-500">Freedom</span>
             </h1>
 
-            {/* Subtext */}
+            {/* Subtitle */}
             <p className="text-base sm:text-lg text-slate-600 mb-8 max-w-xl leading-relaxed font-medium">
-              Explore 150+ verified self-drive cars with doorstep delivery. Starting from <strong className="text-slate-900 font-bold">₹99/hour</strong> with zero security deposit options.
+              Book sanitized self-drive SUVs & Hatchbacks with instant doorstep delivery across Delhi, Gurgaon, Noida, and Ghaziabad. Starting @ <strong className="text-slate-900 font-bold">₹99/hour</strong>.
             </p>
 
-            {/* 3 STAT HIGHLIGHTS WITH ICONS */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-2 border-t border-slate-200/80 w-full max-w-lg">
+            {/* 3 STAT HIGHLIGHTS */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-4 border-t border-slate-200/80 w-full max-w-lg">
               
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 17a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4zM3 9l2-4h10l2 4M3 9h18v6H3V9z" />
-                  </svg>
+                <div className="w-10 h-10 rounded-2xl bg-red-50 text-red-500 border border-red-100 flex items-center justify-center flex-shrink-0 font-bold shadow-xs">
+                  🚗
                 </div>
                 <div>
-                  <p className="text-sm font-extrabold text-slate-900 leading-none">150+</p>
-                  <p className="text-[11px] text-slate-500 font-medium mt-1">Active Vehicles</p>
+                  <p className="text-sm font-black text-slate-900 leading-none">150+</p>
+                  <p className="text-[11px] text-slate-500 font-semibold mt-1">Active Vehicles</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                <div className="w-10 h-10 rounded-2xl bg-red-50 text-red-500 border border-red-100 flex items-center justify-center flex-shrink-0 font-bold shadow-xs">
+                  📍
                 </div>
                 <div>
-                  <p className="text-sm font-extrabold text-slate-900 leading-none">Verified</p>
-                  <p className="text-[11px] text-slate-500 font-medium mt-1">Fleet Service</p>
+                  <p className="text-sm font-black text-slate-900 leading-none">Doorstep</p>
+                  <p className="text-[11px] text-slate-500 font-semibold mt-1">NCR Delivery</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                <div className="w-10 h-10 rounded-2xl bg-red-50 text-red-500 border border-red-100 flex items-center justify-center flex-shrink-0 font-bold shadow-xs">
+                  ⚡
                 </div>
                 <div>
-                  <p className="text-sm font-extrabold text-slate-900 leading-none">Best Prices</p>
-                  <p className="text-[11px] text-slate-500 font-medium mt-1">Market Leading</p>
+                  <p className="text-sm font-black text-slate-900 leading-none">₹0 Deposit</p>
+                  <p className="text-[11px] text-slate-500 font-semibold mt-1">Zero Hidden Fees</p>
                 </div>
               </div>
 
@@ -94,38 +90,50 @@ export default function Hero() {
 
           </div>
 
-          {/* RIGHT COLUMN - CAR SHOWCASE */}
-          <div className="lg:col-span-6 relative flex justify-center lg:justify-end items-center animate-fade-in-scale">
-            <div className="relative w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 border border-white bg-white group">
-              <img
-                src={heroCarImg}
-                alt="Luxury rental car"
-                className="w-full h-64 sm:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
+          {/* RIGHT COLUMN: 3D FLOATING TRANSPARENT CAR SHOWCASE (100% CLEAN & BLENDED) */}
+          <div className="lg:col-span-6 relative flex flex-col justify-center items-center animate-fade-in-scale">
+            
+            {/* Glowing 3D Backdrop Spotlight */}
+            <div className="relative w-full max-w-lg h-72 sm:h-96 flex items-center justify-center">
               
-              {/* Floating Customer Rating Badge */}
-              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-lg border border-slate-100 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-red-50 text-red-500 flex items-center justify-center font-bold">
+              {/* Radial Light Ring */}
+              <div className="absolute inset-0 m-auto w-72 sm:w-96 h-72 sm:h-96 bg-gradient-to-tr from-red-500/20 via-red-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+
+              {/* FLOATING 3D CAR PNG */}
+              <img
+                src={scorpioCar}
+                alt="Mahindra Scorpio N 3D Self-Drive Car"
+                className="w-[95%] sm:w-[100%] max-h-80 object-contain relative z-20 mix-blend-multiply filter drop-shadow-[0_20px_25px_rgba(0,0,0,0.15)] animate-float-3d transition-transform duration-500 hover:scale-105"
+              />
+
+              {/* 3D Floor Shadow */}
+              <div className="absolute bottom-2 inset-x-10 h-5 bg-slate-900/20 rounded-full blur-xl z-10 scale-y-50 pointer-events-none" />
+
+              {/* Floating Badge: Top Right Price */}
+              <div className="absolute top-2 right-2 sm:right-4 z-30 bg-slate-900 text-white px-3.5 py-2 rounded-2xl shadow-xl flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
+                <span className="text-xs font-black">Starting @ ₹99/hr</span>
+              </div>
+
+              {/* Floating Badge: Bottom Left Rating */}
+              <div className="absolute bottom-2 left-2 sm:left-4 z-30 bg-white/95 backdrop-blur-md text-slate-900 px-4 py-2.5 rounded-2xl shadow-2xl border border-slate-200/80 flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-amber-400 text-slate-900 font-black flex items-center justify-center text-xs shadow-xs">
                   ★
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 font-medium">Customer Rating</p>
-                  <p className="text-sm font-extrabold text-slate-900">4.9 / 5.0 (2,400+ reviews)</p>
+                  <p className="text-[10px] text-slate-500 font-bold uppercase">Customer Rating</p>
+                  <p className="text-xs font-extrabold text-slate-900">4.9 / 5.0 (2,400+ Reviews)</p>
                 </div>
               </div>
 
-              {/* Floating Active Badge */}
-              <div className="absolute top-4 right-4 bg-slate-900/90 backdrop-blur-md text-white text-xs font-bold px-3.5 py-1.5 rounded-xl shadow-md flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                <span>Delhi NCR Live</span>
-              </div>
             </div>
+
           </div>
 
         </div>
 
-        {/* ELEVATED SEARCH / FILTER BAR OVERLAPPING HERO BOTTOM EDGE */}
-        <div className="relative z-30 bg-white rounded-3xl shadow-2xl shadow-slate-900/10 border border-slate-200/80 p-4 sm:p-6 animate-fade-in-scale">
+        {/* ELEVATED SEARCH / FILTER BAR */}
+        <div className="relative z-30 bg-white text-slate-900 rounded-3xl shadow-2xl p-4 sm:p-6 animate-fade-in-scale border border-slate-200/80">
           
           {/* SEARCH TABS */}
           <div className="flex items-center gap-2 border-b border-slate-100 pb-3 mb-5 overflow-x-auto scrollbar-none">
@@ -201,15 +209,15 @@ export default function Hero() {
 
               {/* Search Cars Button */}
               <div className="sm:col-span-12 lg:col-span-2 mt-1 sm:mt-0 relative z-10">
-                <button
-                  type="submit"
+                <a
+                  href="#cars"
                   className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-red-500/25 hover:shadow-red-500/40 active:scale-[0.98] transition duration-200 flex items-center justify-center gap-2 text-sm"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                   <span>Search Cars</span>
-                </button>
+                </a>
               </div>
 
             </form>
@@ -220,6 +228,7 @@ export default function Hero() {
               {['All', 'Hatchback', 'Sedan', 'SUV', '7-Seater'].map((b) => (
                 <button
                   key={b}
+                  type="button"
                   onClick={() => setSelectedBodyType(b)}
                   className={`px-4 py-2.5 rounded-xl text-xs font-bold transition ${
                     selectedBodyType === b
@@ -238,6 +247,7 @@ export default function Hero() {
               {['All Prices', 'Under ₹100/hr', '₹100 - ₹200/hr', '₹200+/hr'].map((p) => (
                 <button
                   key={p}
+                  type="button"
                   onClick={() => setSelectedPriceRange(p)}
                   className={`px-4 py-2.5 rounded-xl text-xs font-bold transition ${
                     selectedPriceRange === p

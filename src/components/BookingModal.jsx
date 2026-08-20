@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '../supabase';
+import { cars } from '../data/cars';
 import CustomDateTimePicker from './CustomDateTimePicker';
 
 export default function BookingModal({ isOpen, onClose, car }) {
+  const [selectedCar, setSelectedCar] = useState(car || cars[0]);
   const [customerName, setCustomerName] = useState('');
   const [phone, setPhone] = useState('');
   const [location, setLocation] = useState('Connaught Place, Delhi');
@@ -12,16 +14,14 @@ export default function BookingModal({ isOpen, onClose, car }) {
   const [isSuccess, setIsSuccess] = useState(false);
   const [bookingId, setBookingId] = useState('');
 
+  // Keep selectedCar updated when prop changes or modal opens
+  useEffect(() => {
+    setSelectedCar(car || cars[0]);
+  }, [car, isOpen]);
+
   if (!isOpen) return null;
 
-  const defaultCar = car || {
-    name: 'Maruti Swift',
-    type: 'Hatchback',
-    pricePerHour: 99,
-    fuelType: 'Petrol',
-    transmission: 'Manual',
-    image: '',
-  };
+  const currentCar = selectedCar || cars[0];
 
   const handleBookingSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +32,7 @@ export default function BookingModal({ isOpen, onClose, car }) {
 
     setLoading(true);
     const newBookingId = 'TRIP-' + Math.floor(100000 + Math.random() * 900000);
-    const estimatedTotal = defaultCar.pricePerHour * 24; // Default 1 day estimate
+    const estimatedTotal = currentCar.pricePerHour * 24; // Default 1 day estimate
 
     // Build payload matching Supabase table columns (pickup_location, customer_name, phone, pickup_datetime)
     const payload = {
@@ -40,7 +40,7 @@ export default function BookingModal({ isOpen, onClose, car }) {
       phone: phone,
       pickup_location: location,
       pickup_datetime: pickupDate,
-      car_name: defaultCar.name,
+      car_name: currentCar.name,
       pickup_date: pickupDate,
       return_date: returnDate || 'Same Day',
       total_price: estimatedTotal,
@@ -49,10 +49,8 @@ export default function BookingModal({ isOpen, onClose, car }) {
 
     try {
       if (supabase) {
-        // First try full payload
         let { error } = await supabase.from('bookings').insert([payload]);
 
-        // If specific column doesn't exist, try sanitized fallback payload
         if (error) {
           console.warn('First insert attempt warning:', error.message);
           const sanitizedPayload = {
@@ -81,7 +79,7 @@ export default function BookingModal({ isOpen, onClose, car }) {
 
   const whatsappMessage = encodeURIComponent(
     `Hello TripOnn! I want to confirm my booking:\n\n` +
-    `🚗 *Car:* ${defaultCar.name}\n` +
+    `🚗 *Car:* ${currentCar.name} (₹${currentCar.pricePerHour}/hr)\n` +
     `👤 *Name:* ${customerName}\n` +
     `📞 *Phone:* ${phone}\n` +
     `📍 *Location:* ${location}\n` +
@@ -125,13 +123,17 @@ export default function BookingModal({ isOpen, onClose, car }) {
               Reservation Confirmed
             </h3>
             <p className="text-sm text-slate-600 mb-6 max-w-sm mx-auto font-medium">
-              Your booking request for <strong className="text-slate-900">{defaultCar.name}</strong> has been saved.
+              Your booking request for <strong className="text-slate-900">{currentCar.name}</strong> has been saved.
             </p>
 
             <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 text-left text-xs space-y-2 mb-6 font-medium text-slate-700">
               <div className="flex justify-between">
                 <span className="text-slate-400">Booking Ref:</span>
                 <span className="font-bold text-slate-900">{bookingId}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-400">Car Model:</span>
+                <span className="font-bold text-red-500">{currentCar.name}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-400">Customer:</span>
@@ -143,7 +145,7 @@ export default function BookingModal({ isOpen, onClose, car }) {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-400">Pickup Date:</span>
-                <span className="font-bold text-red-500">{pickupDate}</span>
+                <span className="font-bold text-slate-900">{pickupDate}</span>
               </div>
             </div>
 
@@ -174,24 +176,54 @@ export default function BookingModal({ isOpen, onClose, car }) {
               </span>
             </div>
             <h3 className="text-2xl font-extrabold text-slate-900 mb-4">
-              Book Your <span className="text-red-500">{defaultCar.name}</span>
+              Book Your <span className="text-red-500">{currentCar.name}</span>
             </h3>
 
-            {/* Selected Car Highlight */}
-            <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 flex items-center justify-between mb-5">
-              <div>
-                <p className="text-xs font-bold text-slate-900">{defaultCar.name}</p>
-                <p className="text-[11px] text-slate-500 font-medium">
-                  {defaultCar.type} • {defaultCar.fuelType} • {defaultCar.transmission || 'Manual'}
-                </p>
-              </div>
-              <div className="text-right">
-                <span className="text-lg font-black text-red-500">₹{defaultCar.pricePerHour}</span>
-                <span className="text-[10px] text-slate-400 font-medium">/hr</span>
-              </div>
-            </div>
-
             <form onSubmit={handleBookingSubmit} className="space-y-4">
+
+              {/* SELECT CAR DROPDOWN SELECTOR */}
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">
+                  Select Vehicle / Car *
+                </label>
+                <select
+                  value={currentCar.id}
+                  onChange={(e) => {
+                    const found = cars.find((c) => c.id === Number(e.target.value));
+                    if (found) setSelectedCar(found);
+                  }}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-extrabold text-slate-900 focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 focus:bg-white transition"
+                >
+                  {cars.map((c) => (
+                    <option key={c.id} value={c.id}>
+                      {c.name} ({c.type} • {c.fuelType}) — ₹{c.pricePerHour}/hr
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Selected Car Highlight Card */}
+              <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  {currentCar.image && (
+                    <img
+                      src={currentCar.image}
+                      alt={currentCar.name}
+                      className="w-16 h-10 object-contain"
+                    />
+                  )}
+                  <div>
+                    <p className="text-xs font-bold text-slate-900">{currentCar.name}</p>
+                    <p className="text-[11px] text-slate-500 font-medium">
+                      {currentCar.type} • {currentCar.fuelType} • {currentCar.transmission || 'Manual'}
+                    </p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <span className="text-lg font-black text-red-500">₹{currentCar.pricePerHour}</span>
+                  <span className="text-[10px] text-slate-400 font-medium">/hr</span>
+                </div>
+              </div>
               
               {/* Customer Name */}
               <div>
@@ -273,7 +305,7 @@ export default function BookingModal({ isOpen, onClose, car }) {
                 disabled={loading}
                 className="w-full mt-4 bg-red-500 hover:bg-red-600 text-white font-extrabold py-3.5 rounded-xl shadow-lg shadow-red-500/25 active:scale-95 transition flex items-center justify-center gap-2 text-sm cursor-pointer"
               >
-                {loading ? 'Processing...' : 'Confirm & Reserve Now'}
+                {loading ? 'Processing...' : `Confirm & Reserve ${currentCar.name}`}
               </button>
 
             </form>

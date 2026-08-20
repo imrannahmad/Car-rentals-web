@@ -10,6 +10,7 @@ import FAQAccordion from './components/FAQAccordion';
 import CTABanner from './components/CTABanner';
 import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
+import BottomNav from './components/BottomNav';
 
 function App() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -21,7 +22,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="pb-16 md:pb-0">
       <Navbar onBook={() => handleOpenBooking()} />
       <Hero />
       <TopRentalCars onBook={(car) => handleOpenBooking(car)} />
@@ -32,6 +33,9 @@ function App() {
       <FAQAccordion />
       <CTABanner onBook={() => handleOpenBooking()} />
       <Footer />
+
+      {/* MOBILE APP-LIKE BOTTOM NAVIGATION BAR */}
+      <BottomNav onBook={() => handleOpenBooking()} />
 
       {/* INTERACTIVE BOOKING MODAL & SUPABASE INTEGRATION */}
       <BookingModal
