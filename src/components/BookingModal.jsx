@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { supabase } from '../supabase';
+import CustomDateTimePicker from './CustomDateTimePicker';
 
 export default function BookingModal({ isOpen, onClose, car }) {
   const [customerName, setCustomerName] = useState('');
@@ -25,36 +26,52 @@ export default function BookingModal({ isOpen, onClose, car }) {
   const handleBookingSubmit = async (e) => {
     e.preventDefault();
     if (!customerName || !phone || !pickupDate) {
-      alert('Please fill in all required fields (Name, Phone, and Pickup Date).');
+      alert('Please select your Pickup Date & Time and enter your Name & Phone.');
       return;
     }
 
     setLoading(true);
-
     const newBookingId = 'TRIP-' + Math.floor(100000 + Math.random() * 900000);
     const estimatedTotal = defaultCar.pricePerHour * 24; // Default 1 day estimate
 
+    // Build payload matching Supabase table columns (pickup_location, customer_name, phone, pickup_datetime)
+    const payload = {
+      customer_name: customerName,
+      phone: phone,
+      pickup_location: location,
+      pickup_datetime: pickupDate,
+      car_name: defaultCar.name,
+      pickup_date: pickupDate,
+      return_date: returnDate || 'Same Day',
+      total_price: estimatedTotal,
+      status: 'Pending',
+    };
+
     try {
       if (supabase) {
-        const { error } = await supabase.from('bookings').insert([
-          {
-            car_name: defaultCar.name,
+        // First try full payload
+        let { error } = await supabase.from('bookings').insert([payload]);
+
+        // If specific column doesn't exist, try sanitized fallback payload
+        if (error) {
+          console.warn('First insert attempt warning:', error.message);
+          const sanitizedPayload = {
             customer_name: customerName,
             phone: phone,
-            location: location,
-            pickup_date: pickupDate,
-            return_date: returnDate || 'Same Day',
-            total_price: estimatedTotal,
-            status: 'Pending',
-          },
-        ]);
-
-        if (error) {
-          console.warn('Supabase Insert Error (Fallback to local success):', error);
+            pickup_location: location,
+          };
+          const res = await supabase.from('bookings').insert([sanitizedPayload]);
+          if (res.error) {
+            console.error('Supabase Insert Error:', res.error);
+          } else {
+            console.log('Booking successfully inserted into Supabase!');
+          }
+        } else {
+          console.log('Booking successfully inserted into Supabase!');
         }
       }
     } catch (err) {
-      console.warn('Supabase connection error:', err);
+      console.error('Supabase connection error:', err);
     } finally {
       setLoading(false);
       setBookingId(newBookingId);
@@ -88,6 +105,7 @@ export default function BookingModal({ isOpen, onClose, car }) {
         
         {/* Close Button */}
         <button
+          type="button"
           onClick={resetAndClose}
           className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold flex items-center justify-center text-sm transition"
         >
@@ -139,6 +157,7 @@ export default function BookingModal({ isOpen, onClose, car }) {
                 <span>Confirm via WhatsApp (+91 9557273446)</span>
               </a>
               <button
+                type="button"
                 onClick={resetAndClose}
                 className="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 rounded-xl transition text-xs"
               >
@@ -223,40 +242,36 @@ export default function BookingModal({ isOpen, onClose, car }) {
                 </select>
               </div>
 
-              {/* Pickup & Return Dates */}
+              {/* INTERACTIVE DATE & TIME PICKERS */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">
-                    Pickup Date & Time *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. 22 Aug, 10:00 AM"
-                    value={pickupDate}
-                    onChange={(e) => setPickupDate(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 focus:bg-white transition"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">
-                    Return Date & Time
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. 23 Aug, 10:00 AM"
-                    value={returnDate}
-                    onChange={(e) => setReturnDate(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 focus:bg-white transition"
-                  />
-                </div>
+                <CustomDateTimePicker
+                  label="Pickup Date & Time *"
+                  value={pickupDate}
+                  onChange={(val) => setPickupDate(val)}
+                  icon={
+                    <svg className="w-3.5 h-3.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  }
+                />
+
+                <CustomDateTimePicker
+                  label="Return Date & Time"
+                  value={returnDate}
+                  onChange={(val) => setReturnDate(val)}
+                  icon={
+                    <svg className="w-3.5 h-3.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  }
+                />
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-4 bg-red-500 hover:bg-red-600 text-white font-extrabold py-3.5 rounded-xl shadow-lg shadow-red-500/25 active:scale-95 transition flex items-center justify-center gap-2 text-sm"
+                className="w-full mt-4 bg-red-500 hover:bg-red-600 text-white font-extrabold py-3.5 rounded-xl shadow-lg shadow-red-500/25 active:scale-95 transition flex items-center justify-center gap-2 text-sm cursor-pointer"
               >
                 {loading ? 'Processing...' : 'Confirm & Reserve Now'}
               </button>
