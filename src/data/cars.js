@@ -1,3 +1,9 @@
+import swiftImg from '../assets/cars/swift.png';
+import balenoImg from '../assets/cars/baleno.png';
+import wagonrImg from '../assets/cars/wagonr.png';
+import scorpioImg from '../assets/cars/scorpio.png';
+import innovaImg from '../assets/cars/innova.png';
+
 export const cars = [
   {
     id: 1,
@@ -5,70 +11,63 @@ export const cars = [
     type: 'Hatchback',
     fuelType: 'Petrol',
     pricePerHour: 99,
+    pricePerDay: 1999,
     seats: 5,
     transmission: 'Manual',
-    image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80',
+    image: swiftImg,
     rating: 4.8,
     trips: '340+ trips'
   },
   {
     id: 2,
+    name: 'Maruti Baleno',
+    type: 'Hatchback',
+    fuelType: 'Petrol',
+    pricePerHour: 129,
+    pricePerDay: 2499,
+    seats: 5,
+    transmission: 'Manual',
+    image: balenoImg,
+    rating: 4.9,
+    trips: '480+ trips'
+  },
+  {
+    id: 3,
     name: 'Maruti WagonR',
     type: 'Hatchback',
     fuelType: 'CNG',
     pricePerHour: 109,
+    pricePerDay: 2199,
     seats: 5,
     transmission: 'Manual',
-    image: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80',
+    image: wagonrImg,
     rating: 4.7,
     trips: '520+ trips'
   },
   {
-    id: 3,
-    name: 'Hyundai i20',
-    type: 'Hatchback',
-    fuelType: 'Petrol',
-    pricePerHour: 129,
-    seats: 5,
-    transmission: 'Automatic',
-    image: 'https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=800&q=80',
-    rating: 4.9,
-    trips: '280+ trips'
-  },
-  {
     id: 4,
-    name: 'Honda City',
-    type: 'Sedan',
-    fuelType: 'Petrol',
-    pricePerHour: 179,
-    seats: 5,
-    transmission: 'Automatic',
-    image: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80',
-    rating: 4.9,
-    trips: '190+ trips'
-  },
-  {
-    id: 5,
-    name: 'Maruti Ertiga',
-    type: 'SUV',
-    fuelType: 'CNG',
-    pricePerHour: 199,
-    seats: 7,
-    transmission: 'Manual',
-    image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80',
-    rating: 4.8,
-    trips: '410+ trips'
-  },
-  {
-    id: 6,
-    name: 'Hyundai Creta',
+    name: 'Mahindra Scorpio-N',
     type: 'SUV',
     fuelType: 'Diesel',
     pricePerHour: 249,
-    seats: 5,
+    pricePerDay: 4999,
+    seats: 7,
     transmission: 'Automatic',
-    image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80',
+    image: scorpioImg,
     rating: 4.95,
     trips: '610+ trips'
+  },
+  {
+    id: 5,
+    name: 'Toyota Innova Hycross',
+    type: 'SUV',
+    fuelType: 'Hybrid',
+    pricePerHour: 299,
+    pricePerDay: 5999,
+    seats: 7,
+    transmission: 'Automatic',
+    image: innovaImg,
+    rating: 4.98,
+    trips: '730+ trips'
   }
 ];
