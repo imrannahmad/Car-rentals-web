@@ -11,7 +11,7 @@ export default function About() {
       label: 'Happy Drivers',
       highlight: true,
       icon: (
-        <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
@@ -22,7 +22,7 @@ export default function About() {
       label: 'Active Vehicles',
       highlight: false,
       icon: (
-        <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 17a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4zM3 9l2-4h10l2 4M3 9h18v6H3V9z" />
         </svg>
       ),
@@ -33,7 +33,7 @@ export default function About() {
       label: 'Roadside Support',
       highlight: false,
       icon: (
-        <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
       ),
@@ -44,7 +44,7 @@ export default function About() {
       label: 'Average Rating',
       highlight: true,
       icon: (
-        <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
         </svg>
       ),
@@ -55,7 +55,7 @@ export default function About() {
       label: 'Doorstep Delivery',
       highlight: true,
       icon: (
-        <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
@@ -67,7 +67,7 @@ export default function About() {
       label: 'Hidden Charges',
       highlight: false,
       icon: (
-        <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
@@ -76,7 +76,7 @@ export default function About() {
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
-      const scrollAmount = direction === 'left' ? -280 : 280;
+      const scrollAmount = direction === 'left' ? -260 : 260;
       scrollContainerRef.current.scrollBy({
         left: scrollAmount,
         behavior: 'smooth',
@@ -85,11 +85,11 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-16 md:py-24 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
+    <section id="about" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
       <ScrollReveal className="max-w-7xl mx-auto">
         
         {/* TOP ABOUT US CONTENT GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-10 sm:mb-12">
           
           <div className="lg:col-span-7 flex flex-col items-start">
             <span className="text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3.5 py-1 rounded-full mb-3 inline-block">
@@ -98,11 +98,11 @@ export default function About() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
               About <span className="text-red-500">TripOnn</span> Car Rentals
             </h2>
-            <p className="text-slate-600 text-base leading-relaxed mb-6 font-medium max-w-2xl">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-medium max-w-2xl">
               TripOnn Car Rentals is Delhi-NCR’s premier self-drive vehicle platform. We provide affordable, clean, and reliable cars with complete flexibility—whether you need a hatchback for a 2-hour grocery run or an SUV for a weekend road trip to the hills.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-700 text-sm font-semibold mb-6 w-full max-w-xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-700 text-xs sm:text-sm font-semibold mb-6 w-full max-w-xl">
               <div className="flex items-center gap-2">
                 <span className="w-5 h-5 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-xs">✓</span>
                 <span>100% Doorstep Delivery across NCR</span>
@@ -123,23 +123,23 @@ export default function About() {
 
             <a
               href="tel:+919557273446"
-              className="bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-xl transition duration-200 shadow-md text-sm"
+              className="bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-xl transition duration-200 shadow-md text-xs sm:text-sm"
             >
               Contact Fleet Manager (+91 9557273446)
             </a>
           </div>
 
           {/* RIGHT SIDE SUMMARY CARD */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-950 text-white p-8 rounded-3xl shadow-xl relative overflow-hidden">
+          <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-950 text-white p-6 sm:p-8 rounded-3xl shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 -mt-8 -mr-8 w-40 h-40 bg-red-500/20 rounded-full blur-2xl pointer-events-none" />
-            <span className="text-[11px] font-extrabold uppercase tracking-widest text-red-400 bg-red-500/10 px-3 py-1 rounded-full inline-block mb-3 border border-red-500/20">
+            <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-red-400 bg-red-500/10 px-3 py-1 rounded-full inline-block mb-3 border border-red-500/20">
               TripOnn Guarantee
             </span>
-            <h3 className="text-2xl font-extrabold mb-3">Driven by Trust & Excellence</h3>
+            <h3 className="text-xl sm:text-2xl font-extrabold mb-3">Driven by Trust & Excellence</h3>
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
               Over 5,000+ satisfied customers trust TripOnn for their daily commutes, family vacations, and business trips across Delhi, Gurgaon, Noida, and Ghaziabad.
             </p>
-            <div className="flex items-center gap-4 text-xs font-bold text-slate-400">
+            <div className="flex items-center gap-3 text-xs font-bold text-slate-400">
               <span className="text-white font-extrabold text-sm">4.9 ★★★★★</span>
               <span>•</span>
               <span>2,400+ Verified Reviews</span>
@@ -148,10 +148,10 @@ export default function About() {
 
         </div>
 
-        {/* SLIDEABLE STATS CAROUSEL HEADER & ARROWS */}
-        <div className="flex items-center justify-between mb-6 pt-4 border-t border-slate-100">
+        {/* COMPACT SLIDEABLE STATS HEADER */}
+        <div className="flex items-center justify-between mb-4 sm:mb-6 pt-4 border-t border-slate-100">
           <div>
-            <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">
+            <h3 className="text-base sm:text-xl font-extrabold text-slate-900 tracking-tight">
               TripOnn by <span className="text-red-500">The Numbers</span>
             </h3>
           </div>
@@ -175,27 +175,27 @@ export default function About() {
           </div>
         </div>
 
-        {/* HORIZONTAL SLIDEABLE STAT CARDS CAROUSEL */}
+        {/* COMPACT SLIDEABLE STAT CARDS CAROUSEL (Tight & Sleek on Mobile) */}
         <div
           ref={scrollContainerRef}
-          className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-3 px-1 scrollbar-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="flex gap-3 sm:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory py-2 px-1 scrollbar-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
           {stats.map((s) => (
             <div
               key={s.id}
-              className="w-[210px] sm:w-[250px] flex-shrink-0 snap-start bg-slate-50/80 hover:bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs hover:shadow-xl hover:border-red-200 hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center justify-between"
+              className="w-[155px] sm:w-[230px] flex-shrink-0 snap-start bg-slate-50/80 hover:bg-white p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl border border-slate-200/80 shadow-xs hover:shadow-lg hover:border-red-200 hover:-translate-y-0.5 transition-all duration-300 text-center flex flex-col items-center justify-between"
             >
-              <div className="w-12 h-12 rounded-2xl bg-white border border-slate-100 text-red-500 flex items-center justify-center mb-3 shadow-xs">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-white border border-slate-100 text-red-500 flex items-center justify-center mb-2.5 shadow-xs">
                 {s.icon}
               </div>
 
-              <p className={`text-3xl sm:text-4xl font-extrabold mb-1 tracking-tight ${
+              <p className={`text-2xl sm:text-3xl font-black mb-0.5 tracking-tight ${
                 s.highlight ? 'text-red-500' : 'text-slate-900'
               }`}>
                 {s.value}
               </p>
 
-              <p className="text-xs sm:text-sm text-slate-600 font-bold uppercase tracking-wider">
+              <p className="text-[10px] sm:text-xs text-slate-500 font-extrabold uppercase tracking-wider leading-tight">
                 {s.label}
               </p>
             </div>
