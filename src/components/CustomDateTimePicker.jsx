@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function CustomDateTimePicker({ label, value, onChange, icon }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -107,14 +107,14 @@ export default function CustomDateTimePicker({ label, value, onChange, icon }) {
         </svg>
       </button>
 
-      {/* 2-STEP POPUP MODAL (STEP 1: DATE -> STEP 2: TIME -> AUTO CLOSE) */}
+      {/* 2-STEP POPUP MODAL OVERLAY (ABSOLUTE MAXIMUM Z-INDEX z-[99999]) */}
       {isOpen && (
-        <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-fadeIn">
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-fadeIn">
           {/* Backdrop Click to Close */}
           <div className="absolute inset-0" onClick={() => setIsOpen(false)} />
 
           {/* Centered Compact Card */}
-          <div className="relative z-10 w-full max-w-[310px] bg-white rounded-3xl shadow-2xl border border-slate-200 p-5 animate-fade-in-scale">
+          <div className="relative z-[100000] w-full max-w-[310px] bg-white rounded-3xl shadow-2xl border border-slate-200 p-5 animate-fade-in-scale">
             
             {/* Modal Header */}
             <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-100">

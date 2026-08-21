@@ -132,7 +132,7 @@ export default function Hero() {
         </div>
 
         {/* ELEVATED SEARCH / FILTER BAR */}
-        <div className="relative z-30 bg-white text-slate-900 rounded-3xl shadow-2xl p-4 sm:p-6 animate-fade-in-scale border border-slate-200/80">
+        <div className="relative z-10 bg-white text-slate-900 rounded-3xl shadow-2xl p-4 sm:p-6 animate-fade-in-scale border border-slate-200/80">
           
           {/* SEARCH TABS */}
           <div className="flex items-center gap-2 border-b border-slate-100 pb-3 mb-5 overflow-x-auto scrollbar-none">
@@ -157,7 +157,7 @@ export default function Hero() {
             <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-4 items-end">
               
               {/* Pickup Location */}
-              <div className="sm:col-span-12 lg:col-span-4 flex flex-col gap-1.5 relative z-10">
+              <div className="sm:col-span-12 lg:col-span-4 flex flex-col gap-1.5">
                 <label className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5 mb-1">
                   <svg className="w-3.5 h-3.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -178,8 +178,8 @@ export default function Hero() {
                 </select>
               </div>
 
-              {/* Pickup Date Component */}
-              <div className="sm:col-span-6 lg:col-span-3 relative z-30">
+              {/* Pickup Date Component (NO STACKING CONTEXT TRAP) */}
+              <div className="sm:col-span-6 lg:col-span-3">
                 <CustomDateTimePicker
                   label="Pickup Date"
                   value={pickupDate}
@@ -192,8 +192,8 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Return Date Component */}
-              <div className="sm:col-span-6 lg:col-span-3 relative z-20">
+              {/* Return Date Component (NO STACKING CONTEXT TRAP) */}
+              <div className="sm:col-span-6 lg:col-span-3">
                 <CustomDateTimePicker
                   label="Return Date"
                   value={returnDate}
@@ -207,7 +207,7 @@ export default function Hero() {
               </div>
 
               {/* Search Cars Button */}
-              <div className="sm:col-span-12 lg:col-span-2 mt-1 sm:mt-0 relative z-10">
+              <div className="sm:col-span-12 lg:col-span-2 mt-1 sm:mt-0">
                 <a
                   href="#cars"
                   className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-red-500/25 hover:shadow-red-500/40 active:scale-[0.98] transition duration-200 flex items-center justify-center gap-2 text-sm"
