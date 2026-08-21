@@ -7,13 +7,16 @@ export default function Footer() {
         
         {/* Col 1: Brand Logo & Intro (Span 4) */}
         <div className="md:col-span-4 flex flex-col items-start">
-          <div className="bg-white p-3 sm:p-4 rounded-2xl inline-block mb-5 shadow-2xl border border-white/20">
+          
+          {/* Logo with Background Removal (Mix-Blend Lighten - No White Box) */}
+          <div className="mb-5 inline-block">
             <img
               src={logoImg}
               alt="TripOnn Car Rental Logo"
-              className="h-13 sm:h-16 md:h-18 w-auto max-w-[220px] object-contain"
+              className="h-12 sm:h-14 md:h-16 w-auto max-w-[220px] object-contain mix-blend-lighten filter brightness-120"
             />
           </div>
+
           <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-medium mb-6 max-w-sm">
             Premier self-drive car rentals across Delhi, Gurgaon, Noida, and Ghaziabad. Hourly, daily, and weekly bookings with zero hidden charges.
           </p>

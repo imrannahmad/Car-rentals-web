@@ -14,6 +14,18 @@ export default function BookingModal({ isOpen, onClose, car }) {
   const [isSuccess, setIsSuccess] = useState(false);
   const [bookingId, setBookingId] = useState('');
 
+  // LOCK BODY SCROLL WHEN MODAL IS OPEN
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   // Keep selectedCar updated when prop changes or modal opens
   useEffect(() => {
     setSelectedCar(car || cars[0]);
