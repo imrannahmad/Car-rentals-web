@@ -13,13 +13,13 @@ export default function Navbar({ onBook }) {
   return (
     <>
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-xs transition-all">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-20 sm:h-24 flex items-center justify-between relative">
           
           {/* MOBILE ONLY: MENU HAMBURGER BUTTON ON THE FAR LEFT */}
           <div className="flex md:hidden items-center z-10">
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="p-2 -ml-2 text-slate-700 hover:text-red-500 focus:outline-none rounded-xl active:bg-slate-100 transition"
+              className="p-2.5 -ml-2 text-slate-700 hover:text-red-500 focus:outline-none rounded-xl active:bg-slate-100 transition"
               aria-label="Open Navigation Menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -28,13 +28,13 @@ export default function Navbar({ onBook }) {
             </button>
           </div>
 
-          {/* LOGO: CENTERED ON MOBILE, LEFT-ALIGNED ON DESKTOP */}
+          {/* LOGO: PROMINENT & LARGER ON MOBILE AND DESKTOP */}
           <div className="flex-1 md:flex-none flex items-center justify-center md:justify-start">
             <a href="#" className="flex items-center gap-2 group transition duration-200 py-1">
               <img
                 src={logoImg}
                 alt="TripOnn Car Rental"
-                className="h-11 sm:h-14 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                className="h-13 sm:h-16 md:h-20 w-auto max-w-[210px] object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </a>
           </div>
@@ -53,10 +53,10 @@ export default function Navbar({ onBook }) {
             {/* Mobile Right Call Action Button */}
             <a
               href="tel:+919557273446"
-              className="flex md:hidden w-9 h-9 rounded-full bg-red-50 text-red-500 items-center justify-center shadow-xs active:scale-95 transition"
+              className="flex md:hidden w-10 h-10 rounded-full bg-red-50 text-red-500 items-center justify-center shadow-xs active:scale-95 transition"
               aria-label="Call Support"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -111,12 +111,12 @@ export default function Navbar({ onBook }) {
           <div className="fixed top-0 left-0 bottom-0 w-[290px] max-w-[85vw] bg-white h-full shadow-2xl p-6 flex flex-col justify-between z-[1000] animate-slide-in-left overflow-y-auto">
             
             <div>
-              {/* Drawer Top Header: Official Brand Logo Image + Close Button */}
+              {/* Drawer Top Header: Prominent Brand Logo Image + Close Button */}
               <div className="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
                 <img
                   src={logoImg}
                   alt="TripOnn Car Rental"
-                  className="h-10 sm:h-12 w-auto object-contain"
+                  className="h-12 sm:h-14 w-auto object-contain"
                 />
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
