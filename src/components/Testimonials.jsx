@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import ScrollReveal from './ScrollReveal';
 
 export default function Testimonials() {
@@ -47,23 +47,8 @@ export default function Testimonials() {
     },
   ];
 
-  // AUTO-SLIDE CONTINUOUS LOOP EVERY 3.5 SECONDS
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const autoScrollInterval = setInterval(() => {
-      if (!container) return;
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      if (container.scrollLeft >= maxScroll - 20) {
-        container.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        container.scrollBy({ left: 320, behavior: 'smooth' });
-      }
-    }, 3500);
-
-    return () => clearInterval(autoScrollInterval);
-  }, []);
+  // Tripled reviews array for seamless infinite looping
+  const infiniteReviews = [...reviews, ...reviews, ...reviews];
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
@@ -76,8 +61,8 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-12 bg-white overflow-hidden">
-      <ScrollReveal className="max-w-7xl mx-auto">
+    <section className="py-12 sm:py-16 bg-white overflow-hidden">
+      <ScrollReveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* SECTION HEADER & ARROW BUTTONS (VISIBLE ON MOBILE & DESKTOP) */}
         <div className="flex flex-row items-end justify-between mb-6 sm:mb-8 gap-2">
@@ -91,17 +76,17 @@ export default function Testimonials() {
           </div>
 
           {/* MINIMALIST SLEEK ARROW BUTTONS (VISIBLE ON MOBILE & DESKTOP) */}
-          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0 self-end pb-1">
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0 self-end pb-1 z-10">
             <button
               onClick={() => scroll('left')}
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-slate-200/90 bg-white hover:bg-slate-900 hover:text-white hover:border-slate-900 text-slate-700 flex items-center justify-center transition shadow-xs active:scale-95 text-base font-bold"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-slate-200/90 bg-white hover:bg-slate-900 hover:text-white hover:border-slate-900 text-slate-700 flex items-center justify-center transition shadow-xs active:scale-95 text-base font-bold cursor-pointer"
               aria-label="Scroll Left"
             >
               ‹
             </button>
             <button
               onClick={() => scroll('right')}
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-slate-200/90 bg-white hover:bg-slate-900 hover:text-white hover:border-slate-900 text-slate-700 flex items-center justify-center transition shadow-xs active:scale-95 text-base font-bold"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-slate-200/90 bg-white hover:bg-slate-900 hover:text-white hover:border-slate-900 text-slate-700 flex items-center justify-center transition shadow-xs active:scale-95 text-base font-bold cursor-pointer"
               aria-label="Scroll Right"
             >
               ›
@@ -109,15 +94,18 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* HORIZONTAL CAROUSEL ROW WITH AUTO-SLIDE */}
-        <div
-          ref={scrollContainerRef}
-          className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-3 px-1 scrollbar-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {reviews.map((r) => (
+      </ScrollReveal>
+
+      {/* CONTINUOUS SEAMLESS MARQUEE TICKER (AUTO SLIDES CONTINUOUSLY 60FPS) */}
+      <div
+        ref={scrollContainerRef}
+        className="w-full overflow-x-auto scrollbar-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden py-3"
+      >
+        <div className="animate-marquee hover:[animation-play-state:paused] flex gap-4 sm:gap-6 px-4">
+          {infiniteReviews.map((r, idx) => (
             <div
-              key={r.id}
-              className="w-[280px] sm:w-[350px] flex-shrink-0 snap-start bg-slate-50/80 hover:bg-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-slate-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+              key={`${r.id}-${idx}`}
+              className="w-[280px] sm:w-[350px] flex-shrink-0 bg-slate-50/90 hover:bg-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
             >
               {/* 5-Star Row */}
               <div className="flex items-center gap-1 text-amber-400 text-sm mb-3">
@@ -149,8 +137,8 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
+      </div>
 
-      </ScrollReveal>
     </section>
   );
 }
