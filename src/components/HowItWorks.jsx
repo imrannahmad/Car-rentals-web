@@ -7,18 +7,28 @@ export default function HowItWorks() {
   const features = [
     {
       id: 1,
-      title: 'Home delivery & return',
-      desc: 'Doorstep delivery, at your preferred location and time.',
+      title: 'Rent With Driver & Self Drive',
+      desc: 'Choose between self-drive freedom or professional driver options.',
       icon: (
         <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 17a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4zM3 9l2-4h10l2 4M3 9h18v6H3V9z" />
         </svg>
       ),
     },
     {
       id: 2,
-      title: 'Flexible pricing plans',
-      desc: 'Choose Your Drive: Hourly rentals or Unlimited KM options.',
+      title: 'Tour & Travels Jamia Nagar',
+      desc: 'Outstation tours, North India trip packages, and local Delhi NCR rides.',
+      icon: (
+        <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 002.5-2.5V7" />
+        </svg>
+      ),
+    },
+    {
+      id: 3,
+      title: '₹1,500/- Starting Price',
+      desc: 'Best budget-friendly car rental pricing across Delhi NCR.',
       icon: (
         <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -26,32 +36,22 @@ export default function HowItWorks() {
       ),
     },
     {
-      id: 3,
-      title: 'Well maintained cars',
-      desc: 'Serviced regularly; full inspection done before each trip.',
-      icon: (
-        <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-    },
-    {
       id: 4,
-      title: '24x7 Roadside Support',
-      desc: 'Our on-call support team is here to help you anytime in NCR.',
+      title: 'Home Delivery & Pickup',
+      desc: 'Doorstep delivery at your preferred location in Okhla & NCR.',
       icon: (
         <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 001 1v4a1 1 0 001 1m-6 0h6" />
         </svg>
       ),
     },
     {
       id: 5,
-      title: 'Zero Deposit Option',
-      desc: 'Fast, paperless online booking with zero hidden charges.',
+      title: '24x7 Direct Helpline',
+      desc: 'Call 9540717869 anytime for instant car booking & assistance.',
       icon: (
         <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
         </svg>
       ),
     },
@@ -78,7 +78,7 @@ export default function HowItWorks() {
               Why Choose Us
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Why Rent With <span className="text-red-500">TripOnn?</span>
+              Why Choose <span className="text-red-500">Okhla Car Rental?</span>
             </h2>
           </div>
 

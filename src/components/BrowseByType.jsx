@@ -50,8 +50,8 @@ export default function BrowseByType({ activeFilter, onSelectFilter }) {
                 Browse by Category
               </h2>
             </div>
-            <p className="text-red-100 text-sm max-w-md">
-              Find the perfect car class for your Delhi-NCR ride — from compact daily hatchbacks to luxurious SUVs.
+            <p className="text-red-100 text-sm max-w-md font-medium">
+              Self drive or with driver options starting @ ₹1,500/day in Jamia Nagar, Okhla & Delhi NCR.
             </p>
           </div>
 

@@ -6,24 +6,24 @@ export default function FAQAccordion() {
 
   const faqs = [
     {
-      q: 'What documents are required to rent a self-drive car with TripOnn?',
-      a: 'You only need a valid Indian Driving License (held for at least 1 year) and a government-issued ID proof like Aadhaar card or Passport.',
+      q: 'What services does Okhla Car Rental & Tour Travels offer?',
+      a: 'We offer self-drive car rentals, chauffeur-driven cars (rent a car with driver), and customized Tour & Travels packages across Jamia Nagar, Okhla, and all of Delhi-NCR.',
     },
     {
-      q: 'Is fuel included in the hourly rental price?',
-      a: 'Prices are listed without fuel so you only pay for what you consume. Cars are handed over with a set level of fuel and should be returned with the same fuel level.',
+      q: 'What is the starting price for renting a car?',
+      a: 'Our rental prices start from just ₹1,500/- per day for hatchback cars in Delhi-NCR location, with flexible hourly and daily rates.',
     },
     {
-      q: 'Is there any security deposit required?',
-      a: 'We offer zero security deposit options for verified users. For standard bookings, a refundable deposit of ₹1,000–₹2,000 is processed instantly upon vehicle return.',
+      q: 'What documents are required to rent a self-drive car?',
+      a: 'You need a valid Indian Driving License (held for at least 1 year) and a government ID proof (Aadhaar Card or Passport).',
     },
     {
-      q: 'Can I get the car delivered to my doorstep in Delhi-NCR?',
-      a: 'Yes! We offer doorstep delivery and pickup across Delhi, Gurgaon, Noida, Ghaziabad, and Aerocity for a minimal convenience fee.',
+      q: 'Can I get doorstep delivery in Jamia Nagar, Okhla, or other NCR areas?',
+      a: 'Yes! We provide convenient doorstep delivery and pickup across Jamia Nagar, Okhla, South Delhi, Noida, Gurgaon, and Ghaziabad.',
     },
     {
-      q: 'What happens if the car breaks down during my trip?',
-      a: 'We provide 24/7 Roadside Assistance across Delhi-NCR. Simply call +91 9557273446 and our technician or replacement car will reach you promptly.',
+      q: 'How can I book a car or contact customer support?',
+      a: 'You can book directly on our website or call/WhatsApp us 24/7 at +91 9540717869 for instant reservations.',
     },
   ];
 

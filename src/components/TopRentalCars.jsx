@@ -43,8 +43,11 @@ export default function TopRentalCars({ onBook }) {
           {/* SECTION HEADER & ARROW BUTTONS */}
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
             <div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-800 tracking-tight">
-                Top Selling Cars in Delhi NCR
+              <span className="text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded-full mb-2 inline-block">
+                Okhla Car Rental Fleet
+              </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+                Top Cars in <span className="text-red-500">Jamia Nagar, Okhla & NCR</span>
               </h2>
             </div>
 

@@ -40,22 +40,28 @@ export default function Navbar({ onBook }) {
             </button>
           </div>
 
-          {/* LOGO: CLEAN MIX-BLEND MULTIPLY (ZERO WHITE BOX) */}
+          {/* LOGO & BRAND NAME */}
           <div className="flex-1 md:flex-none flex items-center justify-center md:justify-start">
-            <a href="#" className="flex items-center gap-2 group transition duration-200 py-1">
-              <img
-                src={logoImg}
-                alt="TripOnn Car Rental"
-                className="h-10 sm:h-12 md:h-14 w-auto max-w-[180px] object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
-              />
+            <a href="#" className="flex items-center gap-2.5 group transition duration-200 py-1">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-red-600 to-red-500 text-white flex items-center justify-center font-black text-xl shadow-md shadow-red-500/25 group-hover:scale-105 transition duration-300">
+                O
+              </div>
+              <div className="flex flex-col">
+                <span className="text-base sm:text-lg font-black text-slate-900 leading-none tracking-tight group-hover:text-red-500 transition">
+                  OKHLA <span className="text-red-500">CAR RENTAL</span>
+                </span>
+                <span className="text-[10px] font-extrabold text-slate-500 tracking-wider uppercase">
+                  Tour & Travels • Jamia Nagar
+                </span>
+              </div>
             </a>
           </div>
 
           {/* CENTER: DESKTOP NAVIGATION LINKS (HIDDEN ON MOBILE) */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+          <nav className="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
             <a href="#" className="text-slate-900 font-bold hover:text-red-500 transition duration-150">Home</a>
-            <a href="#cars" className="hover:text-red-500 transition duration-150">Fleet</a>
-            <a href="#how-it-works" className="hover:text-red-500 transition duration-150">How It Works</a>
+            <a href="#cars" className="hover:text-red-500 transition duration-150">Fleet & Drivers</a>
+            <a href="#how-it-works" className="hover:text-red-500 transition duration-150">Tour Packages</a>
             <a href="#about" className="hover:text-red-500 transition duration-150">About Us</a>
             <a href="#faq" className="hover:text-red-500 transition duration-150">FAQ</a>
           </nav>
@@ -64,7 +70,7 @@ export default function Navbar({ onBook }) {
           <div className="flex items-center gap-3 sm:gap-6">
             {/* Mobile Right Call Action Button */}
             <a
-              href="tel:+919557273446"
+              href="tel:+919540717869"
               className="flex md:hidden w-9 h-9 rounded-full bg-red-50 text-red-500 items-center justify-center shadow-xs active:scale-95 transition"
               aria-label="Call Support"
             >
@@ -81,7 +87,7 @@ export default function Navbar({ onBook }) {
             {/* Desktop Right Call + Book Button */}
             <div className="hidden md:flex items-center gap-6">
               <a
-                href="tel:+919557273446"
+                href="tel:+919540717869"
                 className="flex items-center gap-2 text-slate-800 hover:text-red-500 font-bold text-sm transition duration-150 group"
               >
                 <div className="w-9 h-9 rounded-full bg-red-50 group-hover:bg-red-500 text-red-500 group-hover:text-white flex items-center justify-center transition duration-200 shadow-xs">
@@ -94,7 +100,7 @@ export default function Navbar({ onBook }) {
                     />
                   </svg>
                 </div>
-                <span className="tracking-tight">+91 9557273446</span>
+                <span className="tracking-tight">+91 9540717869</span>
               </a>
 
               <button
@@ -123,13 +129,21 @@ export default function Navbar({ onBook }) {
           <div className="fixed top-0 left-0 bottom-0 w-[290px] max-w-[85vw] bg-white h-full shadow-2xl p-6 flex flex-col justify-between z-[1000] animate-slide-in-left overflow-y-auto">
             
             <div>
-              {/* Drawer Top Header: Clean Logo Image + Close Button */}
+              {/* Drawer Top Header: Clean Brand Header + Close Button */}
               <div className="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
-                <img
-                  src={logoImg}
-                  alt="TripOnn Car Rental"
-                  className="h-10 sm:h-12 w-auto object-contain mix-blend-multiply"
-                />
+                <div className="flex items-center gap-2">
+                  <div className="w-9 h-9 rounded-xl bg-red-500 text-white flex items-center justify-center font-black text-lg shadow-xs">
+                    O
+                  </div>
+                  <div>
+                    <h3 className="font-extrabold text-sm text-slate-900 leading-tight">
+                      OKHLA CAR RENTAL
+                    </h3>
+                    <p className="text-[10px] text-slate-500 font-bold uppercase">
+                      Tour & Travels Jamia Nagar
+                    </p>
+                  </div>
+                </div>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-sm transition"
@@ -154,7 +168,7 @@ export default function Navbar({ onBook }) {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-slate-700 font-semibold py-3 px-3 rounded-xl hover:bg-red-50 hover:text-red-500 transition text-sm flex items-center justify-between border-b border-slate-50"
                 >
-                  <span>Our Fleet</span>
+                  <span>Fleet & With Driver</span>
                   <span className="text-slate-300">→</span>
                 </a>
                 <a
@@ -162,7 +176,7 @@ export default function Navbar({ onBook }) {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-slate-700 font-semibold py-3 px-3 rounded-xl hover:bg-red-50 hover:text-red-500 transition text-sm flex items-center justify-between border-b border-slate-50"
                 >
-                  <span>How It Works</span>
+                  <span>Tour & Travels</span>
                   <span className="text-slate-300">→</span>
                 </a>
                 <a
@@ -187,13 +201,13 @@ export default function Navbar({ onBook }) {
             {/* Drawer Bottom Action Options */}
             <div className="pt-4 border-t border-slate-100 flex flex-col gap-3 mt-6">
               <a
-                href="tel:+919557273446"
+                href="tel:+919540717869"
                 className="flex items-center justify-center gap-2 py-3 rounded-xl bg-red-50 text-red-600 font-bold text-sm shadow-xs"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <span>Call +91 9557273446</span>
+                <span>Call +91 9540717869</span>
               </a>
 
               <button

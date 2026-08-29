@@ -36,42 +36,54 @@ export default function CarCard({ car, onBook }) {
         </div>
       </div>
 
-      {/* MIDDLE SECTION: SPECS ICON ROW */}
-      <div className="flex items-center justify-between text-xs text-slate-500 font-medium py-3 border-t border-slate-100 mb-4">
-        {/* Type */}
-        <div className="flex items-center gap-1.5">
-          <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M8 17a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4zM3 9l2-4h10l2 4M3 9h18v6H3V9z" />
-          </svg>
-          <span>{type}</span>
+      {/* MIDDLE SECTION: SPECS ICON ROW & SERVICE BADGE */}
+      <div className="space-y-2 py-3 border-t border-slate-100 mb-4">
+        <div className="flex items-center justify-between text-xs text-slate-500 font-medium">
+          {/* Type */}
+          <div className="flex items-center gap-1.5">
+            <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M8 17a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4zM3 9l2-4h10l2 4M3 9h18v6H3V9z" />
+            </svg>
+            <span>{type}</span>
+          </div>
+
+          {/* Transmission */}
+          <div className="flex items-center gap-1.5">
+            <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+            <span>{transmission || 'Manual'}</span>
+          </div>
+
+          {/* Seats */}
+          <div className="flex items-center gap-1.5">
+            <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            <span>{seats} seats</span>
+          </div>
         </div>
 
-        {/* Transmission */}
-        <div className="flex items-center gap-1.5">
-          <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-          </svg>
-          <span>{transmission || 'Manual'}</span>
-        </div>
-
-        {/* Seats */}
-        <div className="flex items-center gap-1.5">
-          <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
-          <span>{seats} seats</span>
+        {/* Service Badge */}
+        <div className="flex items-center justify-between text-[11px] font-bold text-slate-600 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">
+          <span className="text-red-600 flex items-center gap-1">
+            <span>⚡</span> {car.serviceType || 'Self Drive & With Driver'}
+          </span>
         </div>
       </div>
 
       {/* BOTTOM SECTION: PRICE & BOOK NOW CTA */}
       <div className="flex items-center justify-between gap-2 pt-1">
-        <div className="flex items-baseline gap-1">
-          <span className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-            ₹{pricePerHour}
-          </span>
-          <span className="text-xs sm:text-sm text-slate-400 font-medium">
-            per hour
-          </span>
+        <div>
+          <div className="flex items-baseline gap-1">
+            <span className="text-2xl sm:text-3xl font-black text-slate-900">
+              ₹{car.pricePerDay || 1500}
+            </span>
+            <span className="text-xs text-slate-400 font-semibold">
+              /day
+            </span>
+          </div>
+          <p className="text-[11px] text-slate-500 font-medium">₹{pricePerHour}/hr approx</p>
         </div>
 
         <button

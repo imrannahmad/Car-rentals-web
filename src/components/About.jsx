@@ -93,39 +93,39 @@ export default function About() {
           
           <div className="lg:col-span-7 flex flex-col items-start">
             <span className="text-xs font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3.5 py-1 rounded-full mb-3 inline-block">
-              About Us
+              Tour & Travels | Jamia Nagar • Okhla
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
-              About <span className="text-red-500">TripOnn</span> Car Rentals
+              About <span className="text-red-500">Okhla Car Rental</span> & Tour Travels
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-medium max-w-2xl">
-              TripOnn Car Rentals is Delhi-NCR’s premier self-drive vehicle platform. We provide affordable, clean, and reliable cars with complete flexibility—whether you need a hatchback for a 2-hour grocery run or an SUV for a weekend road trip to the hills.
+              Okhla Car Rental & Tour Travels is Jamia Nagar & Okhla’s premier vehicle service provider in Delhi NCR. We provide affordable self-drive cars, experienced chauffeur-driven vehicles, and customized tour & travels packages with starting price location Delhi NCR from ₹1,500/day.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-700 text-xs sm:text-sm font-semibold mb-6 w-full max-w-xl">
               <div className="flex items-center gap-2">
                 <span className="w-5 h-5 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-xs">✓</span>
-                <span>100% Doorstep Delivery across NCR</span>
+                <span>Self Drive & With Driver Options</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-5 h-5 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-xs">✓</span>
-                <span>Sanitized & inspected before trips</span>
+                <span>Tour & Travels Jamia Nagar | Okhla</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-5 h-5 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-xs">✓</span>
-                <span>Zero hidden fee pricing</span>
+                <span>Starting Price ₹1,500/- in Delhi NCR</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-5 h-5 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold text-xs">✓</span>
-                <span>24/7 Roadside Assistance</span>
+                <span>24/7 Roadside Assistance & Booking</span>
               </div>
             </div>
 
             <a
-              href="tel:+919557273446"
+              href="tel:+919540717869"
               className="bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-xl transition duration-200 shadow-md text-xs sm:text-sm"
             >
-              Contact Fleet Manager (+91 9557273446)
+              Call Us Now (+91 9540717869)
             </a>
           </div>
 
@@ -133,16 +133,16 @@ export default function About() {
           <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-950 text-white p-6 sm:p-8 rounded-3xl shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 -mt-8 -mr-8 w-40 h-40 bg-red-500/20 rounded-full blur-2xl pointer-events-none" />
             <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-red-400 bg-red-500/10 px-3 py-1 rounded-full inline-block mb-3 border border-red-500/20">
-              TripOnn Guarantee
+              Okhla Guarantee
             </span>
             <h3 className="text-xl sm:text-2xl font-extrabold mb-3">Driven by Trust & Excellence</h3>
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
-              Over 5,000+ satisfied customers trust TripOnn for their daily commutes, family vacations, and business trips across Delhi, Gurgaon, Noida, and Ghaziabad.
+              Thousands of satisfied customers trust Okhla Car Rental for local commuting, outstation trips, family vacations, and chauffeur services across Delhi NCR.
             </p>
             <div className="flex items-center gap-3 text-xs font-bold text-slate-400">
               <span className="text-white font-extrabold text-sm">4.9 ★★★★★</span>
               <span>•</span>
-              <span>2,400+ Verified Reviews</span>
+              <span>Jamia Nagar | Okhla HQ</span>
             </div>
           </div>
 
@@ -152,7 +152,7 @@ export default function About() {
         <div className="flex items-center justify-between mb-4 sm:mb-6 pt-4 border-t border-slate-100">
           <div>
             <h3 className="text-base sm:text-xl font-extrabold text-slate-900 tracking-tight">
-              TripOnn by <span className="text-red-500">The Numbers</span>
+              Okhla Car Rental by <span className="text-red-500">The Numbers</span>
             </h3>
           </div>
 

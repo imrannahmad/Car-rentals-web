@@ -5,10 +5,10 @@ export default function Locations() {
   const scrollContainerRef = useRef(null);
 
   const hubs = [
-    { city: 'Delhi', location: 'Connaught Place & Aerocity', vehicles: '60+ Cars' },
-    { city: 'Gurgaon', location: 'Cyber Hub & Golf Course Rd', vehicles: '50+ Cars' },
-    { city: 'Noida', location: 'Sector 18 & Electronic City', vehicles: '30+ Cars' },
-    { city: 'Ghaziabad', location: 'Indirapuram & Vaishali', vehicles: '20+ Cars' },
+    { city: 'Jamia Nagar | Okhla', location: 'Head Office & Main Fleet Hub', vehicles: '60+ Cars' },
+    { city: 'Delhi NCR', location: 'Connaught Place & Aerocity', vehicles: '50+ Cars' },
+    { city: 'Noida', location: 'Sector 18 & Electronic City', vehicles: '40+ Cars' },
+    { city: 'Gurgaon', location: 'Cyber Hub & Golf Course Rd', vehicles: '30+ Cars' },
   ];
 
   const scroll = (direction) => {

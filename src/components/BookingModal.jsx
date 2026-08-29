@@ -7,7 +7,8 @@ export default function BookingModal({ isOpen, onClose, car }) {
   const [selectedCar, setSelectedCar] = useState(car || cars[0]);
   const [customerName, setCustomerName] = useState('');
   const [phone, setPhone] = useState('');
-  const [location, setLocation] = useState('Connaught Place, Delhi');
+  const [location, setLocation] = useState('Jamia Nagar | Okhla, New Delhi');
+  const [rentalMode, setRentalMode] = useState('Self Drive');
   const [pickupDate, setPickupDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
   const [loading, setLoading] = useState(false);
@@ -43,16 +44,16 @@ export default function BookingModal({ isOpen, onClose, car }) {
     }
 
     setLoading(true);
-    const newBookingId = 'TRIP-' + Math.floor(100000 + Math.random() * 900000);
-    const estimatedTotal = currentCar.pricePerHour * 24; // Default 1 day estimate
+    const newBookingId = 'OKHLA-' + Math.floor(100000 + Math.random() * 900000);
+    const estimatedTotal = currentCar.pricePerDay || 1500;
 
-    // Build payload matching Supabase table columns (pickup_location, customer_name, phone, pickup_datetime)
+    // Build payload matching Supabase table columns
     const payload = {
       customer_name: customerName,
       phone: phone,
       pickup_location: location,
       pickup_datetime: pickupDate,
-      car_name: currentCar.name,
+      car_name: `${currentCar.name} (${rentalMode})`,
       pickup_date: pickupDate,
       return_date: returnDate || 'Same Day',
       total_price: estimatedTotal,
@@ -90,11 +91,12 @@ export default function BookingModal({ isOpen, onClose, car }) {
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Hello TripOnn! I want to confirm my booking:\n\n` +
-    `🚗 *Car:* ${currentCar.name} (₹${currentCar.pricePerHour}/hr)\n` +
+    `Hello Okhla Car Rental & Tour Travels!\nI want to confirm my booking:\n\n` +
+    `🚗 *Car:* ${currentCar.name} (₹${currentCar.pricePerDay}/day)\n` +
+    `🔑 *Booking Type:* ${rentalMode}\n` +
     `👤 *Name:* ${customerName}\n` +
     `📞 *Phone:* ${phone}\n` +
-    `📍 *Location:* ${location}\n` +
+    `📍 *Pickup Location:* ${location}\n` +
     `📅 *Pickup:* ${pickupDate}\n` +
     `📅 *Return:* ${returnDate || 'Same Day'}\n` +
     `🆔 *Booking Ref:* ${bookingId}`
@@ -135,7 +137,7 @@ export default function BookingModal({ isOpen, onClose, car }) {
               Reservation Confirmed
             </h3>
             <p className="text-sm text-slate-600 mb-6 max-w-sm mx-auto font-medium">
-              Your booking request for <strong className="text-slate-900">{currentCar.name}</strong> has been saved.
+              Your booking request for <strong className="text-slate-900">{currentCar.name}</strong> ({rentalMode}) has been received.
             </p>
 
             <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 text-left text-xs space-y-2 mb-6 font-medium text-slate-700">
@@ -146,6 +148,10 @@ export default function BookingModal({ isOpen, onClose, car }) {
               <div className="flex justify-between">
                 <span className="text-slate-400">Car Model:</span>
                 <span className="font-bold text-red-500">{currentCar.name}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-400">Service Type:</span>
+                <span className="font-bold text-slate-900">{rentalMode}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-400">Customer:</span>
@@ -163,12 +169,12 @@ export default function BookingModal({ isOpen, onClose, car }) {
 
             <div className="flex flex-col gap-3">
               <a
-                href={`https://wa.me/919557273446?text=${whatsappMessage}`}
+                href={`https://wa.me/919540717869?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3.5 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm"
               >
-                <span>Confirm via WhatsApp (+91 9557273446)</span>
+                <span>Confirm via WhatsApp (+91 9540717869)</span>
               </a>
               <button
                 type="button"
@@ -193,6 +199,37 @@ export default function BookingModal({ isOpen, onClose, car }) {
 
             <form onSubmit={handleBookingSubmit} className="space-y-4">
 
+              {/* RENTAL MODE TOGGLE: SELF DRIVE VS WITH DRIVER */}
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1.5">
+                  Service Option *
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setRentalMode('Self Drive')}
+                    className={`py-2.5 px-3 rounded-xl text-xs font-extrabold transition border flex items-center justify-center gap-1.5 ${
+                      rentalMode === 'Self Drive'
+                        ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                        : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                    }`}
+                  >
+                    <span>🚘 Self Drive</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setRentalMode('With Driver')}
+                    className={`py-2.5 px-3 rounded-xl text-xs font-extrabold transition border flex items-center justify-center gap-1.5 ${
+                      rentalMode === 'With Driver'
+                        ? 'bg-red-500 text-white border-red-500 shadow-sm'
+                        : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                    }`}
+                  >
+                    <span>👨‍✈️ With Driver</span>
+                  </button>
+                </div>
+              </div>
+
               {/* SELECT CAR DROPDOWN SELECTOR */}
               <div>
                 <label className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">
@@ -208,7 +245,7 @@ export default function BookingModal({ isOpen, onClose, car }) {
                 >
                   {cars.map((c) => (
                     <option key={c.id} value={c.id}>
-                      {c.name} ({c.type} • {c.fuelType}) — ₹{c.pricePerHour}/hr
+                      {c.name} — ₹{c.pricePerDay}/day (₹{c.pricePerHour}/hr)
                     </option>
                   ))}
                 </select>
@@ -227,13 +264,13 @@ export default function BookingModal({ isOpen, onClose, car }) {
                   <div>
                     <p className="text-xs font-bold text-slate-900">{currentCar.name}</p>
                     <p className="text-[11px] text-slate-500 font-medium">
-                      {currentCar.type} • {currentCar.fuelType} • {currentCar.transmission || 'Manual'}
+                      {currentCar.type} • {currentCar.fuelType} • {currentCar.serviceType}
                     </p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <span className="text-lg font-black text-red-500">₹{currentCar.pricePerHour}</span>
-                  <span className="text-[10px] text-slate-400 font-medium">/hr</span>
+                  <span className="text-lg font-black text-red-500">₹{currentCar.pricePerDay}</span>
+                  <span className="text-[10px] text-slate-400 font-medium">/day</span>
                 </div>
               </div>
               
@@ -260,7 +297,7 @@ export default function BookingModal({ isOpen, onClose, car }) {
                 <input
                   type="tel"
                   required
-                  placeholder="e.g. 9876543210"
+                  placeholder="e.g. 9540717869"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 focus:bg-white transition"
@@ -277,12 +314,13 @@ export default function BookingModal({ isOpen, onClose, car }) {
                   onChange={(e) => setLocation(e.target.value)}
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 focus:bg-white transition"
                 >
+                  <option value="Jamia Nagar | Okhla, New Delhi">Jamia Nagar | Okhla, New Delhi</option>
                   <option value="Connaught Place, Delhi">Connaught Place, Delhi</option>
                   <option value="Cyber Hub, Gurgaon">Cyber Hub, Gurgaon</option>
                   <option value="Sector 18, Noida">Sector 18, Noida</option>
                   <option value="Aerocity, Delhi">Aerocity, Delhi</option>
                   <option value="Indirapuram, Ghaziabad">Indirapuram, Ghaziabad</option>
-                  <option value="Doorstep Delivery">Doorstep Delivery (NCR)</option>
+                  <option value="Doorstep Delivery (Delhi NCR)">Doorstep Delivery (Delhi NCR)</option>
                 </select>
               </div>
 
